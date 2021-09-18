@@ -1,0 +1,16 @@
+%h1 Einmaleins-Test
+
+= turbo_frame_tag 'test' do
+  = form_with model: @test, url: tests_path(@test), data: { controller: 'auto-submit' } do |f|
+    .MultiColumnForm
+      .MultiColumnForm-column
+        .MultiColumnForm-row.MarginBottom
+          .InputWithLabel
+            = f.label 'Name', class: 'Label'
+            = f.text_field :name, class: 'Input'
+          .InputWithLabel
+            = f.label 'Anzahl der Aufgaben', class: 'Label'
+            = f.text_field :number_of_tasks, class: 'Input'
+      .MultiColumnForm-column
+        .MultiColumnForm-button
+          = f.submit 'Los', class: 'Button Button--small'

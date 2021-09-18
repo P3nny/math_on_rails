@@ -1,0 +1,8 @@
+<h1>Tasks</h1>
+
+%ul.tasks
+- @tasks.each do |task|
+  - if task.calculation_type == 'division'
+    %li #{task.num1} : #{task.num2} =  #{task.res}
+  - elsif task.calculation_type == 'multiplication'
+    %li #{task.num1} * #{task.num2} =  #{task.res}

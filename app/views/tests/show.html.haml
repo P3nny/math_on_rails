@@ -1,0 +1,10 @@
+%h1 #{@test.name}
+%p Anzahl der Aufgaben: #{@test.number_of_tasks}
+
+%ul.tasks
+- @tasks.each do |task|
+  - if task.calculation_type == 'division'
+    %li #{task.num1} : #{task.num2} =
+  - elsif task.calculation_type == 'multiplication'
+    %li #{task.num1} * #{task.num2} =
+
