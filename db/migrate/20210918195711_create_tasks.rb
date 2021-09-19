@@ -5,8 +5,8 @@ class CreateTasks < ActiveRecord::Migration[6.1]
       t.integer :num1
       t.integer :num2
       t.integer :res
-      t.boolean :known
-      t.integer :how_often
+      t.boolean :correct
+      t.integer :incorrect
 
       t.timestamps
     end

@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 2021_09_18_195711) do
     t.integer "num1"
     t.integer "num2"
     t.integer "res"
-    t.boolean "known"
-    t.integer "how_often"
+    t.boolean "correct"
+    t.integer "incorrect"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 2021_09_18_195711) do
   create_table "tests", force: :cascade do |t|
     t.string "name"
     t.integer "number_of_tasks"
-    t.integer "correct"
-    t.integer "incorrect"
+    t.integer "number_of_correct"
+    t.integer "number_of_incorrect"
     t.text "tasks", default: "--- []\n"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
