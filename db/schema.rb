@@ -17,10 +17,12 @@ ActiveRecord::Schema.define(version: 2021_09_18_195711) do
     t.integer "num1"
     t.integer "num2"
     t.integer "res"
-    t.boolean "correct"
-    t.integer "incorrect"
+    t.integer "correct", default: 0
+    t.integer "incorrect", default: 0
+    t.integer "test_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["test_id"], name: "index_tasks_on_test_id"
   end
 
   create_table "tests", force: :cascade do |t|
@@ -28,7 +30,6 @@ ActiveRecord::Schema.define(version: 2021_09_18_195711) do
     t.integer "number_of_tasks"
     t.integer "number_of_correct"
     t.integer "number_of_incorrect"
-    t.text "tasks", default: "--- []\n"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

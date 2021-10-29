@@ -1,15 +1,17 @@
 class TestsController < ApplicationController
   def index
-    
   end
 
   def show
     @test = Test.find(params[:id])
-    @tasks = get_random_tasks
+    @tasks = @test.tasks
+    @task = @tasks.select { |t| !t.answered? }.first
+
   end
 
   def create
     @test = Test.new(test_params)
+    get_random_tasks
 
     if @test.save
       redirect_to @test
@@ -24,6 +26,14 @@ class TestsController < ApplicationController
     end
 
     def get_random_tasks
-      random_tasks = Task.all.sample(@test.number_of_tasks)
+      sample = Task.all.sample(@test.number_of_tasks)
+      sample.each do | task |
+        task.update(test_id: @test)
+      end
+    end
+
+    def save_random_tasks_ids
+      @tasks = random_tasks.map{|x| x[:id]}
+      Test.update(tasks: random_tasks)
     end
 end

@@ -6,10 +6,10 @@
       .MultiColumnForm-column
         .MultiColumnForm-row.MarginBottom
           .InputWithLabel
-            = f.label 'Name', class: 'Label'
+            = f.label :name, 'Name', class: 'Label'
             = f.text_field :name, class: 'Input'
           .InputWithLabel
-            = f.label 'Anzahl der Aufgaben', class: 'Label'
+            = f.label :number_of_tasks, 'Anzahl der Aufgaben', class: 'Label'
             = f.text_field :number_of_tasks, class: 'Input'
       .MultiColumnForm-column
         .MultiColumnForm-button
